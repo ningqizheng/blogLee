@@ -49,8 +49,16 @@
 <script>
   $(function(){
     $('#form').on('submit',function(e){
-      console.log('666')
-      // e.preventDefault
+      // alert(1);
+      $.ajax({
+        url:'/register',
+        data:$('#form').serialize(),
+        type:'post',
+        success:function(result){
+          alert(result.msg)
+          location.href='/login'
+        }
+      })
       return false
     })
   })
