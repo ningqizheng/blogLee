@@ -20,6 +20,7 @@ app.set('views','./views')//写不写都可以,默认存在views里面
 app.use('/node_modules',express.static('./node_modules'))
 //请求首页
 app.get('/',(req,res)=>{
+    // res.render(渲染页面,数据对象)
     res.render('index',{test:'老赵打鬼'})
 })
 //请求注册页面
@@ -62,6 +63,18 @@ app.post('/register',(req,res)=>{
 app.get('/login',(req,res)=>{
     res.render('./user/login')
 })
+
+app.post('/login',(req,res)=>{
+    let userInfo = req.body
+    // console.log(userInfo)
+    const sql3 = 'select * from users where username = ? and password = ?'
+    conn.query(sql3,[userInfo.username,userInfo.password],(err,result)=>{
+        if(err) return res.status(400).send({status:400,msg:'登录失败,请重试'})
+        res.send({status:200,msg:'登录成功'})
+    })
+})
+
+
 app.listen(80,()=>{
     console.log('http://127.0.0.1')
 })
