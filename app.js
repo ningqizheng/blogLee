@@ -25,7 +25,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
 //   设置过期时间,如果不设置,默认关闭浏览器即过期,无法存储有效cookie
-  cookie: { maxAge:5000000 }
+  cookie: { maxAge:5000000000000000000000000000000000000000000000000000 }
 }))
 // 引入获取表单数据的模块
 const bodyParser = require('body-parser')
