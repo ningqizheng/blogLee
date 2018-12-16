@@ -54,7 +54,15 @@ module.exports={
         const sql3 = 'select * from users where username = ? and password = ?'
         conn.query(sql3,[userInfo.username,userInfo.password],(err,result)=>{
             if(err || result.length==0) return res.status(400).send({status:400,msg:'登录失败,请重试'})
+            
+
+            //将用户信息存储到session中
+            // console.log(req.session, result)
+            req.session.userInfo =  result[0]
+            req.session.islogin = true
+            // console.log(req.session)
             res.send({status:200,msg:'登录成功'})
+
         })
     }
 }

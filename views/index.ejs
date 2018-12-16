@@ -32,20 +32,28 @@
                       </div>
                       <button type="submit" class="btn btn-default">搜索</button>
                     </form>
-                    <div class="nav navbar-nav navbar-right navbar-form">
-                            <a href='/register' class="btn btn-success">注册</a>
-                            <a href='/login' class="btn btn-primary">登录</a>
-                    </div>
-                    <ul class="nav navbar-nav navbar-right">
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">发表<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="#">文章</a></li>
-                          <li><a href="#">问题</a></li>
-                        </ul>
-                      </li>
-                    </ul>
+
+                    <%if(islogin){%>
+                      <div class="nav navbar-nav navbar-right navbar-form">
+                        <a href='javaScript:;' class="btn btn-warning">欢迎<strong><%=userInfo.nickname%></strong></a>
+                        <a href='javaScript:;' class="btn btn-danger">注销</a>
+                     </div>
+                      <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">发表<span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="#">文章</a></li>
+                            <li><a href="#">问题</a></li>
+                          </ul>
+                        </li>
+                      </ul>
+                    <%}else{%>
                     
+                      <div class="nav navbar-nav navbar-right navbar-form">
+                        <a href='/register' class="btn btn-success">注册</a>
+                        <a href='/login' class="btn btn-primary">登录</a>
+                      </div>
+                    <%}%>
                   </div><!-- /.navbar-collapse -->
 
                 </div><!-- /.container-fluid -->
@@ -54,6 +62,6 @@
         <div class="text-center text-muted">
             我的github首页: <a href="https://github.com/ningqizheng">https://github.com/ningqizheng</a>
         </div>
-    <!-- <p><%=test%></p> -->
+    
 </body>
 </html>
