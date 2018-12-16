@@ -1,11 +1,10 @@
 const express = require('express')
+//引入路由模块
 const router = express.Router()
-
+//引入controller模块
+const ctrl = require('../controller/index')
 //请求首页
-router.get('/',(req,res)=>{
-    // res.render(渲染页面,数据对象)
-    res.render('index',{test:'老赵打鬼'})
-})
+router.get('/',ctrl.getIndexHandler)
 
 
 
