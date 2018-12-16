@@ -70,10 +70,5 @@ module.exports={
             res.send({status:200,msg:'退出登录成功'})
         })
     },
-    getAddArticleHandler(req,res){
-        res.render('./user/article',{
-            userInfo:req.session.userInfo ,
-            islogin:req.session.islogin
-        })
-    }
+    
 }

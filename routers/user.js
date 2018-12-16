@@ -16,6 +16,5 @@ routerUser.post('/login',ctrl.postLoginHandler)
 //请求退出登录页
 routerUser.get('/logout',ctrl.getLogoutHandler)
 
-//请求文章列表页
-routerUser.get('/article',ctrl.getAddArticleHandler)
+
 module.exports=routerUser
